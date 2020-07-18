@@ -34,11 +34,11 @@ const Favourite=(props)=>{
 
         )
     }
-    else if (props.favorites.errMess) {
+    else if (props.favourites.errMess) {
         return(
             <div className="container">
                 <div className="row">
-                    <h4>{props.favorites.errMess}</h4>
+                    <h4>{props.favourites.errMess}</h4>
                 </div>
             </div>
         )
@@ -59,10 +59,10 @@ const Favourite=(props)=>{
                 <div className="row">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>My Favorites</BreadcrumbItem>
+                        <BreadcrumbItem active>My favourites</BreadcrumbItem>
                     </Breadcrumb>
                     <div className="col-12">
-                        <h3>My Favorites</h3>
+                        <h3>My favourites</h3>
                         <hr />
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Favourite=(props)=>{
         return(
             <div className="container">
                 <div className="row">
-                    <h4>You have no favorites</h4>
+                    <h4>You have no favourites</h4>
                 </div>
             </div>
         )
