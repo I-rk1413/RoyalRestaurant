@@ -9,7 +9,7 @@ import Header from './header';
 import Footer from './footer';
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchfavourites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchfavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { actions } from 'react-redux-form';
 
@@ -20,7 +20,7 @@ const mapStateToProps = state => {
       comments: state.comments,
       promotions: state.promotions,
       leaders: state.leaders,
-      favourites: state.favourites,
+      favorites: state.favorites,
       auth: state.auth
     }
 }
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
     postFeedback: (feedback) => dispatch(postFeedback(feedback)),
     loginUser: (creds) => dispatch(loginUser(creds)),
     logoutUser: () => dispatch(logoutUser()),
-    fetchfavourites: () => dispatch(fetchfavourites()),
+    fetchfavorites: () => dispatch(fetchfavorites()),
     postFavorite: (dishId) => dispatch(postFavorite(dishId)),
     deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId))
   });
@@ -48,7 +48,7 @@ class Main extends Component{
         this.props.fetchComments();
         this.props.fetchPromos();
         this.props.fetchLeaders();
-        this.props.fetchfavourites();
+        this.props.fetchfavorites();
 
     }
     render(){
@@ -76,7 +76,7 @@ class Main extends Component{
                 comments={this.props.comments.comments.filter((comment) => comment.dish === match.params.dishId)}
                 commentsErrMess={this.props.comments.errMess}
                 postComment={this.props.postComment}
-                favorite={this.props.favourites.favourites.dishes.some((dish) => dish._id === match.params.dishId)}
+                favorite={this.props.favorites.favorites.dishes.some((dish) => dish._id === match.params.dishId)}
                 postFavorite={this.props.postFavorite}
                 />
               :
@@ -116,7 +116,7 @@ class Main extends Component{
                   <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />
                   <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
                   <Route path="/menu/:dishId" component={DishWithId} />
-                  <PrivateRoute exact path="/favourites" component={() => <Favourites favourites={this.props.favourites} deleteFavorite={this.props.deleteFavorite} />} />
+                  <PrivateRoute exact path="/favorites" component={() => <Favourites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
                   <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
                   <Redirect to="/home" />
                 </Switch>

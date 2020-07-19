@@ -24,7 +24,7 @@ function RenderMenuItem({ dish, deleteFavorite }) {
 
 const Favourite=(props)=>{
 
-    if(props.favourites.isLoading){
+    if(props.favorites.isLoading){
         return(
             <div className="container">
                 <div className="row">
@@ -34,18 +34,18 @@ const Favourite=(props)=>{
 
         )
     }
-    else if (props.favourites.errMess) {
+    else if (props.favorites.errMess) {
         return(
             <div className="container">
                 <div className="row">
-                    <h4>{props.favourites.errMess}</h4>
+                    <h4>{props.favorites.errMess}</h4>
                 </div>
             </div>
         )
     }
 
-    else if(props.favourites.favourites){
-        const favourites=props.favourites.favourites.dishes.map((dish)=>{
+    else if(props.favorites.favorites){
+        const favorites=props.favorites.favorites.dishes.map((dish)=>{
             return(
                 <div key={dish._id} className='col-12 mt-5'>
                     <RenderMenuItem dish={dish} deleteFavourite={props.deleteFavourite} />
@@ -59,16 +59,16 @@ const Favourite=(props)=>{
                 <div className="row">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>My favourites</BreadcrumbItem>
+                        <BreadcrumbItem active>My favorites</BreadcrumbItem>
                     </Breadcrumb>
                     <div className="col-12">
-                        <h3>My favourites</h3>
+                        <h3>My favorites</h3>
                         <hr />
                     </div>
                 </div>
                 <div className="row">
                     <Media list>
-                        {favourites}
+                        {favorites}
                     </Media>
                 </div>
             </div>
@@ -78,7 +78,7 @@ const Favourite=(props)=>{
         return(
             <div className="container">
                 <div className="row">
-                    <h4>You have no favourites</h4>
+                    <h4>You have no favorites</h4>
                 </div>
             </div>
         )
