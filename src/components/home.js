@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
-import {Loading } from '/loading';
+import {Loading } from './loading';
 import { baseUrl } from '../shared/baseUrl';
 import {FadeTransform} from 'react-animation-components';
 

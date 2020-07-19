@@ -4,7 +4,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
     Modal, ModalHeader, ModalBody, Button, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm } from 'react-redux-form';
-import { Loading } from './LoadingComponent';
+import { Loading } from './loading';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 

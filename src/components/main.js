@@ -9,7 +9,7 @@ import Header from './header';
 import Footer from './footer';
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchfavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/actions';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { actions } from 'react-redux-form';
 
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
     postFeedback: (feedback) => dispatch(postFeedback(feedback)),
     loginUser: (creds) => dispatch(loginUser(creds)),
     logoutUser: () => dispatch(logoutUser()),
-    fetchfavorites: () => dispatch(fetchfavorites()),
+    fetchfavorites: () => dispatch(fetchFavorites()),
     postFavorite: (dishId) => dispatch(postFavorite(dishId)),
     deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId))
   });
