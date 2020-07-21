@@ -84,7 +84,7 @@ export const addDishes = (dishes) => ({
 });
 
 export const fetchComments = () => (dispatch) => {
-    return fetch(baseUrl + 'comments')
+    return fetch(baseUrl + 'comment')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -369,7 +369,7 @@ export const fetchFavorites = () => (dispatch) => {
 
     const bearer = 'Bearer ' + localStorage.getItem('token');
 
-    return fetch(baseUrl + 'favorites', {
+    return fetch(baseUrl + 'favourite', {
         headers: {
             'Authorization': bearer
         },

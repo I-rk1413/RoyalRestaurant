@@ -76,7 +76,7 @@ class Main extends Component{
                 comments={this.props.comments.comments.filter((comment) => comment.dish === match.params.dishId)}
                 commentsErrMess={this.props.comments.errMess}
                 postComment={this.props.postComment}
-                favorite={this.props.favorites.favorites.dishes.some((dish) => dish._id === match.params.dishId)}
+                favorite={this.props.favorites.favourites.dishes.some((dish) => dish._id === match.params.dishId)}
                 postFavorite={this.props.postFavorite}
                 />
               :
