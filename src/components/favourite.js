@@ -48,7 +48,7 @@ const Favourite=(props)=>{
         const favorites=props.favorites.favorites.dishes.map((dish)=>{
             return(
                 <div key={dish._id} className='col-12 mt-5'>
-                    <RenderMenuItem dish={dish} deleteFavourite={props.deleteFavourite} />
+                    <RenderMenuItem dish={dish} deleteFavorite={props.deleteFavorite} />
                </div>
             )
 
