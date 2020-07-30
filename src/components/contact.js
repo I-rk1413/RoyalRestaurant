@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, Form, Errors } from 'react-redux-form';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 const required=(val)=>val && val.length;
 const maxLength=(len)=>(val)=>!(val)||(val.length<=len);
@@ -54,6 +55,13 @@ class Contact extends Component{
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
                         <h5>Map of our Location</h5>
+                        <Map
+                            google={this.props.google}
+                            zoom={8}
+                          
+                            initialCenter={{ lat: 47.444, lng: -122.176}}
+                         />   
+                            
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">

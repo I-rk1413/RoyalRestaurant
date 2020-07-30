@@ -47,11 +47,14 @@ function RenderComments({comments, postComment, dishId}) {
                         {comments.map((comment) => {
                             return (
                                 <Fade in key={comment._id}>
-                                    <li>
-                                    <p>{comment.comment}</p>
-                                    <p>{comment.rating} stars</p>
-                                    <p>-- {comment.author.firstname} {comment.author.lastname} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.updatedAt)))}</p>
-                                    </li>
+                                <Card>
+                                   
+                                    <CardBody>
+                                    <CardTitle>Comment :{comment.comment}</CardTitle>
+                                    <CardText>Rating :{comment.rating} stars</CardText>
+                                    <CardText>Author : {comment.author.firstname} {comment.author.lastname} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.updatedAt)))}</CardText>
+                                    </CardBody>
+                                </Card>
                                 </Fade>
                             );
                         })}
