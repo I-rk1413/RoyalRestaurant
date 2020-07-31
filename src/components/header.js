@@ -9,12 +9,14 @@ class Header extends Component{
         super(props);
         this.state = {
             isNavOpen: false,
-            isModalOpen: false
+            isModalOpen: false,
+            actionName:''
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+     
     }
 
     toggleNav() {
@@ -24,9 +26,11 @@ class Header extends Component{
     }
 
 
-    toggleModal() {
+
+    toggleModal(action) {
         this.setState({
-            isModalOpen: !this.state.isModalOpen
+            isModalOpen: !this.state.isModalOpen,
+            actionName:action
         });
     }
 
@@ -89,13 +93,19 @@ class Header extends Component{
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <Button outline onClick={this.toggleModal}>
+                                    <span>
+                                        <Button outline  onClick={()=>this.toggleModal('login')} >
                                             <span className="fa fa-sign-in fa-lg"></span> Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
                                         </Button>
+                                        
+                                        <Button outline className='ml-3' onClick={()=>this.toggleModal('signUp')}>
+                                        <span className='fa fa-user-plus fa-lg'></span> SignUp</Button>
+                                        </span>
+                                       
                                         :
                                         <div>
                                         <div className="navbar-text mr-3">{this.props.auth.user.username}</div>
@@ -111,6 +121,8 @@ class Header extends Component{
 
                                 </NavItem>
                             </Nav>
+
+                            
                         </Collapse>
                     </div>
                 </Navbar>
@@ -125,8 +137,10 @@ class Header extends Component{
                         </div>
                     </div>
                 </Jumbotron>
-
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                {
+                    this.state.actionName==='login'
+                    ?
+                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handleLogin}>
@@ -151,6 +165,41 @@ class Header extends Component{
                         </Form>
                     </ModalBody>
                 </Modal>
+                :this.state.actionName==='signUp'?
+                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>SignUp</ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handleLogin}>
+                        <FormGroup>
+                                <Label htmlFor="firstname">First Name</Label>
+                                <Input type="text" id="firstname" name="firstname"
+                                    innerRef={(input) => this.firstname = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastname">Last Name</Label>
+                                <Input type="text" id="lastname" name="lastname"
+                                    innerRef={(input) => this.lastname = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                    innerRef={(input) => this.username = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                    innerRef={(input) => this.password = input}  />
+                            </FormGroup>
+                            
+                            <Button outline type="submit" value="submit"  className='btn btn-outline-success'>Register</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>:null
+                
+                
+                }
+
+                
 
                       
             </React.Fragment>

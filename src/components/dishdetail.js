@@ -53,6 +53,7 @@ function RenderComments({comments, postComment, dishId}) {
                                     <CardTitle>Comment :{comment.comment}</CardTitle>
                                     <CardText>Rating :{comment.rating} stars</CardText>
                                     <CardText>Author : {comment.author.firstname} {comment.author.lastname} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.updatedAt)))}</CardText>
+                                    <Button outline ><span className='fa fa-pencil fa-lg'></span> Edit</Button>
                                     </CardBody>
                                 </Card>
                                 </Fade>
