@@ -201,7 +201,7 @@ export const postFeedback = (feedback) => (dispatch) => {
         credentials: "same-origin"
     })
     .then(response => {
-        if (response.ok) {
+        if (response) {
           return response;
         } else {
           var error = new Error('Error ' + response.status + ': ' + response.statusText);
@@ -213,7 +213,7 @@ export const postFeedback = (feedback) => (dispatch) => {
             throw error;
       })
     .then(response => response.json())
-    .then(response => { console.log('Feedback', response); alert('Thank you for your feedback!\n'+JSON.stringify(response)); })
+    .then(response => { console.log( response); alert('Thank you for your feedback!\n'+JSON.stringify(response)); })
     .catch(error =>  { console.log('Feedback', error.message); alert('Your feedback could not be posted\nError: '+error.message); });
 };
 
