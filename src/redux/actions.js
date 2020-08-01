@@ -239,6 +239,66 @@ export const loginError = (message) => {
     }
 }
 
+export const requestSignUp = () => {
+    return {
+        type: ActionTypes.SIGNUP_REQUEST  
+    }
+}
+export const receiveSignUp = (response) => {
+    return {
+        type: ActionTypes.SIGNUP_SUCCESS,
+        status:response.status
+    }
+}
+  
+export const signUpError = (message) => {
+    return {
+        type: ActionTypes.SIGNUP_FAILURE,
+        message
+    }
+}
+
+
+export const signUpUser=(creds)=>(dispatch)=>{
+    dispatch(requestSignUp())
+
+    return fetch(baseUrl+'users/signUp',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(creds)
+    })
+    .then(response=>{
+        if(response){
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+            
+        }
+    },error=>{
+        throw error;
+    })
+    .then(response => response.json())
+    .then(response=>{
+        if(response.success){
+            dispatch(receiveSignUp(response.status));
+            alert(response.status)
+        }
+        else {
+            var error = new Error('Error ' + response.status);
+            error.response = response;
+            throw error;
+        }
+    })
+    .catch(error => dispatch(signUpError(error.message)))
+    
+}
+
+
 export const loginUser = (creds) => (dispatch) => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))

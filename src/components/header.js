@@ -16,6 +16,7 @@ class Header extends Component{
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleSignUp=this.handleSignUp.bind(this)
      
     }
 
@@ -39,6 +40,13 @@ class Header extends Component{
         this.props.loginUser({username: this.username.value, password: this.password.value});
         event.preventDefault();
 
+    }
+
+    handleSignUp(event){
+        this.toggleModal();
+        this.props.signUpUser({username:this.username.value,password:this.password.value,
+        firstname:this.firstname.value,lastname:this.lastname.value});
+        event.preventDefault();
     }
 
     handleLogout() {
@@ -169,7 +177,7 @@ class Header extends Component{
                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>SignUp</ModalHeader>
                     <ModalBody>
-                        <Form onSubmit={this.handleLogin}>
+                        <Form onSubmit={this.handleSignUp}>
                         <FormGroup>
                                 <Label htmlFor="firstname">First Name</Label>
                                 <Input type="text" id="firstname" name="firstname"

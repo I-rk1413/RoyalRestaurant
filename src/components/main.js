@@ -9,7 +9,7 @@ import Header from './header';
 import Footer from './footer';
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/actions';
+import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite ,signUpUser} from '../redux/actions';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { actions } from 'react-redux-form';
 
@@ -34,6 +34,7 @@ const mapDispatchToProps = (dispatch) => ({
     fetchLeaders: () => dispatch(fetchLeaders()),
     postFeedback: (feedback) => dispatch(postFeedback(feedback)),
     loginUser: (creds) => dispatch(loginUser(creds)),
+    signUpUser:(creds)=>dispatch(signUpUser(creds)),
     logoutUser: () => dispatch(logoutUser()),
     fetchfavorites: () => dispatch(fetchFavorites()),
     postFavorite: (dishId) => dispatch(postFavorite(dishId)),
@@ -107,7 +108,8 @@ class Main extends Component{
             <div>
             <Header auth={this.props.auth} 
               loginUser={this.props.loginUser} 
-              logoutUser={this.props.logoutUser} 
+              logoutUser={this.props.logoutUser}
+              signUpUser={this.props.signUpUser} 
               />   
             <TransitionGroup>
               <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
