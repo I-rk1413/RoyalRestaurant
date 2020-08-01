@@ -2,6 +2,7 @@ import * as ActionTypes from './actionTypes';
 
 export const SignUp = (state = {
     isLoading: false,
+    status:null,
     errMess: null
 }, action) => {
 switch (action.type) {
@@ -12,6 +13,7 @@ switch (action.type) {
     case ActionTypes.SIGNUP_SUCCESS:
         return {...state,
             isLoading: false,
+            status:action.status,
             errMess: '',
         
         };
