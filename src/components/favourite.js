@@ -1,5 +1,5 @@
 import React from 'react';
-import { Media, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
+import { Media, Breadcrumb, BreadcrumbItem, Button,Card } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './loading';
@@ -9,7 +9,7 @@ function RenderMenuItem({ dish, deleteFavorite }) {
     return(
         <Media tag="li">
             <Media left middle>
-                <Media object src={baseUrl + dish.image} alt={dish.name} />
+                <Media object src={baseUrl + dish.image} alt={dish.name} width='100px' height='auto'/>
             </Media>
             <Media body className="ml-5">
                 <Media heading>{dish.name}</Media>
@@ -67,8 +67,8 @@ const Favourite=(props)=>{
                     </div>
                 </div>
                 <div className="row">
-                    <Media list>
-                        {favorites}
+                    <Media list >
+                    {favorites} 
                     </Media>
                 </div>
             </div>

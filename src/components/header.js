@@ -56,7 +56,7 @@ class Header extends Component{
     render(){
         return(
             <React.Fragment>
-                <Navbar dark expand="md">
+                <Navbar style={{backgroundColor:'black'}} expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav}/>
                         <NavbarBrand className="mr-auto" href="/">
@@ -66,32 +66,33 @@ class Header extends Component{
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink className='nav-link' to='/home'>
-                                        <span className="fa fa-home fa-lg"></span>
+                                    <NavLink className='nav-link' to='/home' style={{color:'lightgray'}}>
+                                        <span className="fa fa-home fa-lg" ></span>
                                          Home
                                     </NavLink>
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
+                                    <NavLink className="nav-link" to="/aboutus" style={{color:'lightgray'}}>
                                         <span className="fa fa-info fa-lg"></span> About Us
                                     </NavLink>
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
+                                    <NavLink className="nav-link" to="/menu" style={{color:'lightgray'}}>
                                         <span className="fa fa-list fa-lg"></span> Menu
                                     </NavLink>
                                 </NavItem>
 
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/favorites">
+                                <NavItem >
+                                {!this.props.auth.isAuthenticated ? null:<NavLink className="nav-link" to="/favorites" style={{color:'lightgray'}}>
                                         <span className="fa fa-heart fa-lg"></span> My favorites
-                                    </NavLink>
+                                    </NavLink>}
+                                    
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
+                                    <NavLink className="nav-link" to="/contactus" style={{color:'lightgray'}}>
                                         <span className="fa fa-address-card fa-lg"></span> Contact Us
                                     </NavLink>
                                 </NavItem>
@@ -116,7 +117,7 @@ class Header extends Component{
                                        
                                         :
                                         <div>
-                                        <div className="navbar-text mr-3">{this.props.auth.user.username}</div>
+                                        <div className="navbar-text mr-3" style={{color:'lightgray'}}>{this.props.auth.user.username}</div>
                                         <Button outline onClick={this.handleLogout}>
                                             <span className="fa fa-sign-out fa-lg"></span> Logout
                                             {this.props.auth.isFetching ?
@@ -135,12 +136,12 @@ class Header extends Component{
                     </div>
                 </Navbar>
 
-                <Jumbotron>
+                <Jumbotron style={{backgroundColor:' lightgray',borderBottom:'2px solid darkgray'}}>
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
-                                <h1>Ristorante Con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                                <h1>Royal Restaurant</h1>
+                                <p style={{fontSize:'20px',color:'black'}}>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                             </div>
                         </div>
                     </div>

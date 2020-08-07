@@ -12,7 +12,7 @@ const RenderMenuItem=({dish,onClick})=>{
             <Link to={`/menu/${dish._id}`}>
                 <CardImg width='100%' src={baseUrl+dish.image} alt={dish.name}/>
                 <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
+                    <CardTitle style={{color:'black'}}>{dish.name}</CardTitle>
                 </CardImgOverlay>
             </Link>
         </Card>
