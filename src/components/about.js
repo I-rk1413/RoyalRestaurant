@@ -10,7 +10,7 @@ function RenderLeader({leader}) {
     return(
         <Media tag="li">
             <Media left middle>
-                <Media object src={baseUrl + leader.image} alt={leader.name} width='200px'  height='auto'/>
+                <Media object src={baseUrl + leader.image} alt={leader.name} width='150px'  height='auto'/>
             </Media>
             <Media body className="ml-5">
                 <Media heading>{leader.name}</Media>
