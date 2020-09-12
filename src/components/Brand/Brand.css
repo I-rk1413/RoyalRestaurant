@@ -1,0 +1,8 @@
+.responsive{
+    display: inline-block;
+}
+@media (max-width: 767.98px) { 
+    .responsive{
+        display: none;
+    }
+ }

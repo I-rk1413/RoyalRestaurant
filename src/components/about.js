@@ -8,16 +8,20 @@ import { Link } from 'react-router-dom';
 
 function RenderLeader({leader}) {
     return(
-        <Media tag="li">
-            <Media left middle>
-                <Media object src={baseUrl + leader.image} alt={leader.name} width='150px'  height='auto'/>
-            </Media>
-            <Media body className="ml-5">
-                <Media heading>{leader.name}</Media>
-                <p>{leader.designation}</p>
-                <p>{leader.description}</p>
-            </Media>
-        </Media>
+        <div className='container row mt-2'>
+        <div className='col-md-3'>
+            <img object src={baseUrl + leader.image} alt={leader.name} width='150px'  height='auto'/>
+        </div>
+        <div className='col-md-9'>
+             <h3>{leader.name}</h3>
+            <p>{leader.designation}</p>
+            <p>{leader.description}</p>
+
+        </div>
+           
+    
+        </div>
+    
     );
 
 }

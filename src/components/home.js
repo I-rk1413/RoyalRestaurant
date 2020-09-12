@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reac
 import {Loading } from './loading';
 import { baseUrl } from '../shared/baseUrl';
 import {FadeTransform} from 'react-animation-components';
-import Brand from './Brand'
+import Brand from './Brand/Brand'
 
 
 function RenderCard({item,isLoading,errMess}){
