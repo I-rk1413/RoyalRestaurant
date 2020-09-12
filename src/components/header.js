@@ -61,7 +61,7 @@ class Header extends Component{
                         <NavbarToggler onClick={this.toggleNav} className='navbar-dark bg-dark' />
 
                         <NavbarBrand className="mr-auto" href="/">
-                            <img src="assets/images/logo.png" height="30" width='41'
+                            <img src="assets/images/smallLogo.png" height="auto" width='50'
                             alt='Ristorente Confusion' />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -137,16 +137,7 @@ class Header extends Component{
                     </div>
                 </Navbar>
 
-                <Jumbotron style={{backgroundColor:' lightgray',borderBottom:'2px solid darkgray'}}>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>Royal Restaurant</h1>
-                                <p style={{fontSize:'20px',color:'black'}}>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
-                            </div>
-                        </div>
-                    </div>
-                </Jumbotron>
+               
                 {
                     this.state.actionName==='login'
                     ?

@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reac
 import {Loading } from './loading';
 import { baseUrl } from '../shared/baseUrl';
 import {FadeTransform} from 'react-animation-components';
+import Brand from './Brand'
 
 
 function RenderCard({item,isLoading,errMess}){
@@ -20,6 +21,8 @@ function RenderCard({item,isLoading,errMess}){
           
     else{
         return(
+            <React.Fragment>
+            
                  <FadeTransform in 
                 transformProps={{exitTransform: 'scale(0.5) translateY(-50%)'}}>
                  <Card>
@@ -31,6 +34,7 @@ function RenderCard({item,isLoading,errMess}){
                      </CardBody>
                  </Card>
                  </FadeTransform>
+            </React.Fragment>     
 
                );
            }
@@ -41,6 +45,8 @@ function RenderCard({item,isLoading,errMess}){
 
 function Home(props){
     return(
+    <React.Fragment>
+    <Brand />
         <div className="container" style={{marginTop:'20px',marginBottom:'20px'}}>
             <div className="row align-items-start">
                 <div className="col-12 col-md m-1">
@@ -56,13 +62,14 @@ function Home(props){
 
                 </div>
                 <div className="col-12 col-md m-1">
-                <RenderCard item={props.leader} 
-                        isLoading={props.leaderLoading} 
-                        errMess={props.leaderErrMess} />
+                <RenderCard item={props.dish2} 
+                        isLoading={props.dish2Loading} 
+                        errMess={props.dish2ErrMess} />
 
                 </div>
             </div>
         </div>
+    </React.Fragment>    
     );
 }
 
